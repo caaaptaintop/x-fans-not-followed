@@ -101,3 +101,7 @@ git clone https://github.com/caaaptaintop/x-fans-not-followed.git
 
 个人自用工具开源分享，按现状提供，无保证。  
 未附带许可证文件；使用前请自行评估。
+
+## 许可
+
+本项目采用 [MIT License](LICENSE)。

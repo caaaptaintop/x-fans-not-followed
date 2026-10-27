@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>待回关</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div>
+          <p class="eyebrow">X · 只读名单</p>
+          <h1>待回关</h1>
+          <p class="lede">点一行，就在当前这个 X 标签打开主页。在那边回关之后，这个人会马上从名单里去掉。</p>
+        </div>
+        <div class="actions">
+          <button id="stop" class="btn ghost" type="button" hidden>停止</button>
+          <button id="resume" class="btn ghost" type="button" hidden>继续</button>
+          <button id="verified" class="btn ghost" type="button">只看蓝 V</button>
+          <button id="start" class="btn solid" type="button">开始扫描</button>
+        </div>
+      </header>
+
+      <section class="stats" aria-label="统计">
+        <article>
+          <span>待回关</span>
+          <strong id="stat-pending">0</strong>
+        </article>
+        <article>
+          <span>蓝 V</span>
+          <strong id="stat-blue">0</strong>
+        </article>
+        <article>
+          <span>扫过</span>
+          <strong id="stat-scanned">0</strong>
+        </article>
+      </section>
+
+      <p id="status" class="status" role="status">还没扫描。请先在这个浏览器登录 x.com。</p>
+      <p id="error" class="error" hidden></p>
+
+      <div class="toolbar">
+        <select id="sort" aria-label="排序">
+          <option value="scan">按扫到的顺序</option>
+          <option value="followers">粉丝多的在前</option>
+          <option value="name">按名字</option>
+        </select>
+        <div class="chips" role="tablist">
+          <button type="button" class="chip on" data-filter="all">全部</button>
+          <button type="button" class="chip" data-filter="blue">蓝 V</button>
+          <button type="button" class="chip" data-filter="spam" id="spam-chip">已标记</button>
+        </div>
+      </div>
+
+      <div id="list" class="list"></div>
+      <p id="empty" class="empty" hidden>这个筛选下没有人。</p>
+
+      <footer class="foot">
+        <button id="copy" class="btn ghost" type="button">复制名单</button>
+        <button id="csv" class="btn ghost" type="button">导出 CSV</button>
+        <p>一页读 200 人，页与页之间停一秒多。限制之后点「继续」，从停下的那一页接着读。点一行，在当前这个 X 标签打开主页。</p>
+      </footer>
+    </div>
+    <script src="dashboard.js"></script>
+  </body>
+</html>
